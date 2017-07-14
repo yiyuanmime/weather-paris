@@ -1,0 +1,88 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'com.neenbedankt.android-apt'
+
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    }
+}
+
+android {
+
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+    defaultConfig {
+        applicationId "com.weather.user"
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    productFlavors {
+
+        def STRING = "String"
+
+        def APP_ID = "APP_ID"
+        def APP_ID_VALUE = "\"8194ea842a9aef80a798c8ac0c320ec4\""
+
+        def REST_SERVER_URL = "REST_SERVER_URL"
+        def DEBUG_REST_SERVER_URL = "\"http://api.openweathermap.org/\""
+
+        integration {
+
+            applicationId "com.weather.user.integration"
+            resValue "string", "app_name", "Weather Paris"
+
+            buildConfigField STRING, REST_SERVER_URL, DEBUG_REST_SERVER_URL
+            buildConfigField STRING, APP_ID, APP_ID_VALUE
+
+        }
+
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.jakewharton:butterknife:8.6.0'
+    apt 'com.jakewharton:butterknife-compiler:8.6.0'
+    compile 'com.squareup:otto:1.3.8'
+    compile 'de.devland.esperandro:esperandro-api:2.2.0'
+    apt 'de.devland.esperandro:esperandro:2.2.0'
+    compile 'org.projectlombok:lombok:1.16.18'
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0-beta4'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+
+
+}
