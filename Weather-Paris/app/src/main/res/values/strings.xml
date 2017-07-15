@@ -1,4 +1,5 @@
 <resources>
-
+    <string name="weather_paris_title">Paris</string>
+    <string name="weather_paris_body">weather in 5 days</string>
 
 </resources>
