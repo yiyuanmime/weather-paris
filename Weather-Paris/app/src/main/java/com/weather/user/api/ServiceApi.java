@@ -5,7 +5,7 @@ import com.weather.user.api.response.WeatherResponse;
 import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
-import rx.Observable;
+import io.reactivex.Observable;
 
 /**
  * Created by yi on 14/07/2017.
