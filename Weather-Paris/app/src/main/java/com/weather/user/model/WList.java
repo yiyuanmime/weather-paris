@@ -16,7 +16,7 @@ import lombok.Setter;
 @Setter
 public class WList implements Parcelable {
 
-    public Integer dt;
+    public Long dt;
     public WTemp temp;
     public Double pressure;
     public Integer humidity;
@@ -32,7 +32,7 @@ public class WList implements Parcelable {
         })
         public WList createFromParcel(Parcel in) {
             WList instance = new WList();
-            instance.dt = ((Integer) in.readValue((Integer.class.getClassLoader())));
+            instance.dt = ((Long) in.readValue((Long.class.getClassLoader())));
             instance.temp = ((WTemp) in.readValue((WTemp.class.getClassLoader())));
             instance.pressure = ((Double) in.readValue((Double.class.getClassLoader())));
             instance.humidity = ((Integer) in.readValue((Integer.class.getClassLoader())));

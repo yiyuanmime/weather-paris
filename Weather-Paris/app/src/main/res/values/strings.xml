@@ -1,5 +1,14 @@
 <resources>
     <string name="weather_paris_title">Paris</string>
     <string name="weather_paris_body">weather in 5 days</string>
+    <string name="weather_info_temp">Temperature</string>
+    <string name="weather_label_degree">degrees</string>
+    <string name="weather_label_detail">Weather detail</string>
 
+
+    <string name="weather_detail_humidity_prefix">Humidity:</string>
+    <string name="weather_detail_pressure_prefix">Pressure:</string>
+    <string name="weather_detail_tmax_prefix">Max tempeture:</string>
+    <string name="weather_detail_tmin_prefix">Min tempeture:</string>
+    <string name="weather_detail_wind_prefix">Wind velocity:</string>
 </resources>
